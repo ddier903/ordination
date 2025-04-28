@@ -7,6 +7,7 @@ public class Patient {
     public String navn { get; set; }
     public double vaegt { get; set; }
     public List<Ordination> ordinationer { get; set; } = new List<Ordination>();
+    public int Id { get; set; }
 
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;

@@ -3,6 +3,7 @@ namespace shared.Model;
 public class PN : Ordination {
 	public double antalEnheder { get; set; }
     public List<Dato> dates { get; set; } = new List<Dato>();
+    public int Id { get; set; }
 
     public PN (DateTime startDen, DateTime slutDen, double antalEnheder, Laegemiddel laegemiddel) : base(laegemiddel, startDen, slutDen) {
 		this.antalEnheder = antalEnheder;
