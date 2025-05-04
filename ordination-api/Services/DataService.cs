@@ -18,7 +18,10 @@ public class DataService
     /// Seeder noget nyt data i databasen, hvis det er nødvendigt.
     /// </summary>
     public void SeedData() {
+
         db.Database.EnsureCreated();
+
+
         // Patients
         Patient[] patients = new Patient[5];
         patients[0] = db.Patienter.FirstOrDefault()!;
