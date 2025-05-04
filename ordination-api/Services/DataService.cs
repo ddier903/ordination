@@ -24,9 +24,8 @@ public class DataService
 
         // Patients
         Patient[] patients = new Patient[5];
-        patients[0] = db.Patienter.FirstOrDefault()!;
 
-        if (patients[0] == null)
+        if (!db.Patienter.Any())
         {
             patients[0] = new Patient("121256-0512", "Jane Jensen", 63.4);
             patients[1] = new Patient("070985-1153", "Finn Madsen", 83.2);
