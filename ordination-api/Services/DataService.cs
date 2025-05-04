@@ -133,7 +133,7 @@ public class DataService
     }
 
     public PN OpretPN(int patientId, int laegemiddelId, double antal, DateTime startDato, DateTime slutDato) {
-        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.Id == patientId);
+        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.PatientId == patientId);
         var laegemiddel = db.Laegemiddler.FirstOrDefault(l => l.Id == laegemiddelId);
 
         // returnere fejl hvis noget mangler
@@ -158,7 +158,7 @@ public class DataService
         double antalMorgen, double antalMiddag, double antalAften, double antalNat,
         DateTime startDato, DateTime slutDato)
     {
-        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.Id == patientId);
+        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.PatientId == patientId);
         var laegemiddel = db.Laegemiddler.FirstOrDefault(l => l.Id == laegemiddelId);
 
         // returnere fejl hvis noget mangler
@@ -182,7 +182,7 @@ public class DataService
 
     public DagligSkæv OpretDagligSkaev(int patientId, int laegemiddelId, Dosis[] doser, DateTime startDato, DateTime slutDato) 
     {
-        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.Id == patientId);
+        var patient = db.Patienter.Include(p => p.ordinationer).FirstOrDefault(p => p.PatientId == patientId);
         var laegemiddel = db.Laegemiddler.FirstOrDefault(l => l.Id == laegemiddelId);
 
         // returnere fejl hvis noget mangler
@@ -240,7 +240,7 @@ public class DataService
 
        public double GetAnbefaletDosisPerDøgn(int patientId, int laegemiddelId)
     {
-        var patient = db.Patienter.FirstOrDefault(p => p.Id == patientId);
+        var patient = db.Patienter.FirstOrDefault(p => p.PatientId == patientId);
         var laegemiddel = db.Laegemiddler.FirstOrDefault(l => l.Id == laegemiddelId);
 
         if (patient == null || laegemiddel == null)
